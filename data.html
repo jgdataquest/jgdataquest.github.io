@@ -1,33 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Frog Haiku</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    
 </head>
+
 <body>
 
-    <h1>A Haiku by Matsuo Basho</h1>
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-default" style="background-color: #f1f1f1!important">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="background-color:aqua; margin-left:2cm; "href="#"; ></i>Lattitude</i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
 
-    <div class="borderbox">
-        <img class="frog"; style="float:left"; width="42"; height="42" src="http://cdn.peacefrogs.com/images/uploads/21989_lrg.jpg" alt="frog">
-        <div class="text">
-            <p class="blueLine">An old silent pond...</p>
-            <p class="greenLine">A frog jumps into the pond,</p>
-            <p class="boldLine">splash! Silence again.</p>
+                        <!-- Navigation Bar with glyphicons -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="temperature.html">Max Temperature</a></li>
+                              <li><a href="windspeed.html">WindSpeed</a></li>
+                              <li><a href="humidity.html">Humidity</a></li>
+                              <li><a href="cloudiness.html">Cloudiness</a></li>
+                            </ul>
+                        <li><a href="comparision.html"></i> Comparision</a></li>
+                        <li><a href="data.html"></i> Data</a></li>
+                        <li><a href="index.html"></i> Home</a></li>
+
+                    </ul>
+            </div>
+        </nav>
+
+        <!-- User Row 1-->
+        <div class="row user-block" style="background-color: #f1f1f1!important">
+            <!-- information -->
+            
+            <table datasrc='#data'>
+                
+                <thead>
+                   <tr><th>Number</th><th>English</th><th>French</th><th>German</th></tr>
+                </thead>
+              
+                <tbody> <tr>
+                   <td><span datafld='number'> </span></td>
+                   <td><span datafld='english'></span></td>
+                   <td><span datafld='french'> </span></td>
+                   <td><span datafld='german'> </span></td>
+                </tbody>
+              
+              </table>
+              
+              
+              <object ID=data classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83">
+                <param nAme="DataURL" value="cities.csv">
+                <param nAme="UseHeader" value="true">
+              </object>
+              
+
         </div>
-    </div>
 
-    <hr>
+        <!-- User Row 2-->
+        <div class="text-center" style="background-color: gray">
+            <h5 <i class="glyphicon glyphicon-globe"></i>CopyrightRutgetsBootcamp2017</h5> 
+        
+        </div>
 
-    <p class="smallFont">Copyright Matsuo Basho 1690</p>
-
-    <aside></aside>
-    <header></header>
-    <section></section>
-    <footer></footer>
-    
+        
 </body>
+
 </html>
-
-
