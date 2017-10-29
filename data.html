@@ -26,7 +26,8 @@
         <!-- Navigation Bar -->
         <nav class="navbar navbar-default" style="background-color: #f1f1f1!important">
                 <div class="navbar-header">
-                    <a class="navbar-brand" style="background-color:aqua; margin-left:2cm; "href="#"; ></i>Lattitude</i></a>
+                    <a class="navbar-brand" style="background-color:#5bc0de; color:whitesmoke; 
+                              margin-left:2cm; "href="#"; ><b>Lattitude</b></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
@@ -49,30 +50,23 @@
         </nav>
 
         <!-- User Row 1-->
-        <div class="row user-block" style="background-color: #f1f1f1!important">
+        <div class="row" style="background-color: #f1f1f1!important; width:900px; display:block; margin-left: auto;
+        margin-right: auto;">
             <!-- information -->
-            
-            <table datasrc='#data'>
-                
-                <thead>
-                   <tr><th>Number</th><th>English</th><th>French</th><th>German</th></tr>
-                </thead>
-              
-                <tbody> <tr>
-                   <td><span datafld='number'> </span></td>
-                   <td><span datafld='english'></span></td>
-                   <td><span datafld='french'> </span></td>
-                   <td><span datafld='german'> </span></td>
-                </tbody>
-              
-              </table>
-              
-              
-              <object ID=data classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83">
-                <param nAme="DataURL" value="cities.csv">
-                <param nAme="UseHeader" value="true">
-              </object>
-              
+            <div class="col-md-11 "; style="padding:1cm; margin:1cm; background-color:white">  
+                <div class="table-responsive">
+                    <h2 style="color:#5bc0de">Data</h2>
+                    <hr>
+                    <h5>The following table includes all of the data used for pluting during this project</h5>
+                    <br />
+                    <div align="center">
+                    <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+                    </div>
+                    <br />
+                    <div id="cities_table">
+                    </div>
+                </div>
+            </div>  
 
         </div>
 
@@ -86,3 +80,39 @@
 </body>
 
 </html>
+
+<script>
+        $(document).ready(function(){
+         $('#load_data').click(function(){
+          $.ajax({
+           url:"cities.csv",
+           dataType:"text",
+           success:function(data)
+           {
+            var cities_data = data.split(/\r?\n|\r/);
+            var table_data = '<table class="table table-bordered table-striped">';
+            for(var count = 0; count<cities_data.length; count++)
+            {
+             var cell_data = cities_data[count].split(",");
+             table_data += '<tr>';
+             for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+             {
+              if(count === 0)
+              {
+               table_data += '<th>'+cell_data[cell_count]+'</th>';
+              }
+              else
+              {
+               table_data += '<td>'+cell_data[cell_count]+'</td>';
+              }
+             }
+             table_data += '</tr>';
+            }
+            table_data += '</table>';
+            $('#cities_table').html(table_data);
+           }
+          });
+         });
+         
+        });
+        </script>
